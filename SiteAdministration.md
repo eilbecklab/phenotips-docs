@@ -12,17 +12,16 @@
 The default ethnicity selector is not well adapted to US conventions. To replace
 it with a simple set of radio buttons:
 
-1.  Go to /bin/edit/PhenoTips/PatientClass?editor=class
-2.  Click *Maternal ethnicity*.
-3.  Change *Name* to *maternal_race*.
-4.  Change *Pretty name* to *Maternal race*.
-5.  Delete everything in *Custom Display*.
-6.  Change *Display Type* to *radio*.
-7.  Uncheck *Multiple Select*.
-8.  Under *Values*, enter
-    `Caucasian|Black|Asian|Pacific Islander|Native American|Other`
-9.  Repeat for *Paternal ethnicity*.
-10. Click *Save and view summary*.
+1. Go to /bin/edit/PhenoTips/PatientClass?editor=class
+2. Click *Maternal ethnicity*.
+3. Change *Pretty name* to *Maternal race*.
+4. Delete everything in *Custom Display*.
+5. Change *Display Type* to *radio*.
+6. Uncheck *Multiple Select*.
+7. Under *Values*, enter
+   `Caucasian|Black|Asian|Pacific Islander|Native American|Other`
+8. Repeat for *Paternal ethnicity*.
+9. Click *Save and view summary*.
 
 ## Relatives
 
