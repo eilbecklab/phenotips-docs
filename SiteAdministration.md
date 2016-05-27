@@ -138,7 +138,8 @@ following example adds a freetext field for eye color:
 8.  Start by filling in *Extension code*. You will need to call a Velocity
     function to display the property from the data model.
 
-    For **numbers** and **strings**:
+    For a **Number**, **String**, **Static List**, **TextArea**, **Email**, or
+    **Boolean**:
 
         {{include reference="PhenoTips.PatientSheetMacros" /}}
 
@@ -146,7 +147,7 @@ following example adds a freetext field for eye color:
         #__displayFormatted('2-col', 'eye_color')
         {{/velocity}}
 
-    For **dates**:
+    For a **Date**:
 
         {{include reference="PhenoTips.PatientSheetMacros" /}}
 
@@ -158,7 +159,7 @@ following example adds a freetext field for eye color:
         #__displayFormatted('2-col', 'date_of_birth' '' 'date')
         {{/velocity}}
 
-    For **arrays** of classed objects:
+    For an **array of classed objects**:
 
         {{include reference="PhenoTips.TabelarDataMacros" /}}
 
