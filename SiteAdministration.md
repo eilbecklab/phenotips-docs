@@ -4,6 +4,7 @@
 * [Relatives](#relatives)
 * [Work groups and study forms](#work-groups-and-study-forms)
 * [User interface components](#user-interface-components)
+  * [Instructional text](#instructional-text)
   * [Arrays of classed objects](#arrays-of-classed-objects)
   * [ClinVar](#clinvar)
 * [Miscellaneous](#miscellaneous)
@@ -187,6 +188,33 @@ following example adds a field for eye color:
 12. (Optional) Go to *Administration* > *Studies* > *[study name]* >
     *Form configuration* to remove *Eye color* from a particular form or move it
     to a different position on the form.
+
+## Instructional text
+
+Sometimes you need to add a paragraph of instructions that apply to a set of
+fields. In this case, you extend the user interface but not the underlying data
+model. The following example adds a paragraph of text at the beginning of the
+"Patient information" section:
+
+1. Click *Administration*, then click *UIX*.
+
+2. Under *New extension name*, enter `UIX_Field__patient_info_instructions` for
+   the new user interface element and click *Create*.
+
+3. Under *Extension code*, put the text that you want to display, such as
+   `Please make sure that all information in this section exactly matches the
+   patient's EHR record in EPIC.` *Extension code* accepts
+   [XWiki syntax](http://platform.xwiki.org/xwiki/bin/view/Main/XWikiSyntax)
+   for bold, italic, lists, and other formatting.
+
+4. (Optional) Under *Extension parameters*, type
+   `title=Patient information instructions`.
+
+5. Click *Save and view summary*.
+
+6. Go to *Administration* > *Patient form structure*, drag and drop the "Patient
+   information instructions" item to the top of the "Patient information"
+   section, and click *Save patient form configuration*.
 
 ## Arrays of classed objects
 
