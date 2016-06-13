@@ -2,9 +2,10 @@
 
 * [Ethnicities](#ethnicities)
 * [Relatives](#relatives)
-* [Work groups and study forms](#work_groups_and_study_forms)
-* [User interface components](#user_interface_components)
-* [ClinVar](#clinvar)
+* [Work groups and study forms](#work-groups-and-study-forms)
+* [User interface components](#user-interface-components)
+  * [Arrays of classed objects](#arrays-of-classed-objects)
+  * [ClinVar](#clinvar)
 * [Miscellaneous](#miscellaneous)
 
 ## Ethnicities
@@ -99,7 +100,7 @@ From now on, all new patients will have a *Study* button.
 
 Phenotips allows you to add new items to the patient entry form. For this to
 work, you must first extend the data model, then extend the user interface. The
-following example adds a freetext field for eye color:
+following example adds a field for eye color:
 
 1.  Go to /bin/edit/PhenoTips/PatientClass?editor=class
 
@@ -109,11 +110,7 @@ following example adds a freetext field for eye color:
 3.  Click the + sign next to the newly-created eye_color property and change
     *Pretty name* to `Eye color`.
 
-4.  (optional) To add an info button, in the *Pretty name* field add, for
-    example,
-    `<span class="fa fa-question-circle xHelpButton" title="The person's predominant eye color."></span>`
-
-5.  If creating a property to record a date, under *Date Format* change
+4.  If creating a property to record a date, under *Date Format* change
     `dd/MM/yyyy HH:mm:ss` to `yyyy-MM-dd`. Then, under *Custom Display*, put:
 
         {{velocity}}{{html wiki=false clean=false}}
@@ -130,12 +127,13 @@ following example adds a freetext field for eye color:
     attribute (which controls the page that the calendar shows first) changed to
     alt="" (i.e. always default to the page that contains the current date).
 
-6.  Return to the home page and click Administration > UIX.
+5.  Click *Save and view summary*, click the PhenoTips logo to return to the
+    home page, click Administration, and click UIX.
 
-7.  Under *New extension name*, enter a name such as UIX_Field__eye_color for
-    the new user interface element.
+6.  Under *New extension name*, enter `UIX_Field__eye_color` for
+    the new user interface element and click *Create*.
 
-8.  Start by filling in *Extension code*. You will need to call a Velocity
+7.  Start by filling in *Extension code*. You will need to call a Velocity
     function to display the property from the data model.
 
     For a **Number**, **String**, **Static List**, **TextArea**, **Email**, or
@@ -159,15 +157,6 @@ following example adds a freetext field for eye color:
         #__displayFormatted('2-col', 'date_of_birth' '' 'date')
         {{/velocity}}
 
-    For an **array of classed objects**:
-
-        {{include reference="PhenoTips.TabelarDataMacros" /}}
-
-        ===DUI history===
-        {{velocity}}
-        #__extradata_displayTable('Main.DUI', {'counter' : false, 'labels' : true, 'mode' : $xcontext.action})
-        {{/velocity}}
-
     Most of the time, you can copy and paste one of these examples changing only
     the name of the data model property. However, you can insert arbitrary
     content or call a different display function if you want. The display
@@ -180,24 +169,75 @@ following example adds a freetext field for eye color:
     `<p><br/></p>` to be inserted before the field, or (if the field is blank)
     to be inserted before where the field would be if it were displayed.
 
-9.  (Optional) Under *Extension parameters*, type `title=Eye color` or similar.
-    This title (more of a label, really) will not be displayed to the user, but
-    it will be displayed when you modify the patient form. It is sort of
-    documented at https://phenotips.org/DevGuide/UIX#HInthepatientform
+8.  (Optional) Under *Extension parameters*, type `title=Eye color`. This title
+    (more of a label, really) will not be displayed to the user, but it will be
+    displayed when you modify the patient form. It is sort of documented at
+    https://phenotips.org/DevGuide/UIX#HInthepatientform
 
-10. Click *Save and view summary.*
+9.  Click *Save and view summary*.
 
-11. Return to the home page and click *Administration* > *Patient form
+10. Return to the home page and click *Administration*, then *Patient form
     structure* to modify the default form.
 
-12. Next to *Eye color*, hold the mouse down on the cross icon to drag the user
+11. Next to *Eye color*, hold the mouse down on the cross icon to drag the user
     interface element onto the patient form, then click *Save patient form
     configuration*. Again, elements must be enabled on the default patient form
     to be able to appear on any other form.
 
-13. Go to *Administration* > *Studies* > *[study name]* > *Form configuration*
-    to remove *Eye color* from a particular form or move it to a different
-    position on the form.
+12. (Optional) Go to *Administration* > *Studies* > *[study name]* >
+    *Form configuration* to remove *Eye color* from a particular form or move it
+    to a different position on the form.
+
+## Arrays of classed objects
+
+Some PhenoTips fields, such as "Measurements" and "List of candidate genes", are
+actually arrays of objects attached to the patient. You can attach custom
+objects to a patient by creating your own class and a user interface component
+that displays an array of objects of that class. The following example creates a
+class for eye examinations, where we are interested in the date of the exam and
+the presence or absence of conjunctivitis:
+
+1.  Go to /bin/create/Main/AllDocs and under *Page name* put `EyeExam`. Click
+    *Create*, then click *Save and view summary*.
+
+2.  Hover over the *Edit* button and click *Class*.
+
+3.  Next to *Add new property*, put `date`, select the Date type, and click
+    *Add*.
+
+4.  Next to *Add new property*, put `conjunctivitus`, select the Boolean type,
+    and click *Add*.
+
+5.  Click the + sign next to the newly created properties. Under "date", change
+    *Pretty name* to `Date`. Under "conjunctivitis", change *Pretty name* to
+    `Conjunctivitis`.
+
+6.  (Optional) To add an info button, in the *Pretty name* field add, for
+    example,
+    `Conjunctivitis<span class="fa fa-question-circle xHelpButton" title="Inflammation of the outermost layer of the white part of the eye, also known as pinkeye."></span>`
+
+7.  Click *Save and view summary*, click the PhenoTips logo to return to the
+    home page, click Administration, and click UIX.
+
+8.  Under *New extension name*, enter `UIX_Field__eye_exams` for
+    the new user interface element and click *Create*.
+
+9.  Copy and paste the following into *Extension code*:
+
+        {{include reference="PhenoTips.TabelarDataMacros" /}}
+
+        ===Eye exams===
+        {{velocity}}
+        #__extradata_displayTable('Main.EyeExam', {'counter' : false, 'labels' : true, 'mode' : $xcontext.action})
+        {{/velocity}}
+
+10. (Optional) Under *Extension parameters*, type `title=Eye exams`.
+
+11. Click *Save and view summary*.
+
+12. Go to *Administration* > *Patient form structure*, drag and drop the "Eye
+    exams" item onto the default patient form, and click *Save patient form
+    configuration*.
 
 ## ClinVar
 
@@ -210,9 +250,9 @@ variants to patients for ClinVar submission:
    [PhenoTips.UIX_Field__clinvar_variants.xar]
    (PhenoTips.UIX_Field__clinvar_variants.xar).
 2. Go to *Administration* > *Import* and import both packages.
-3. (Optional) Go to *Administration* > *Patient form structure* and drag and
-   drop the "Variants for ClinVar" item from the "Genotype information" to
-   wherever you'd like it.
+3. (Optional) Go to *Administration* > *Patient form structure*, drag and drop
+   the "Variants for ClinVar" item from the "Genotype information" to wherever
+   you'd like it, and click *Save patient form configuration*.
 
 ## Miscellaneous
 
