@@ -14,16 +14,16 @@
 The default ethnicity selector is not well adapted to US conventions. To replace
 it with a simple set of radio buttons:
 
-1. Go to /bin/edit/PhenoTips/PatientClass?editor=class
-2. Click *Maternal ethnicity*.
-3. Change *Pretty name* to *Maternal race*.
-4. Delete everything in *Custom Display*.
-5. Change *Display Type* to *radio*.
-6. Uncheck *Multiple Select*.
-7. Under *Values*, enter
-   `Caucasian|Black|Asian|Pacific Islander|Native American|Other`
-8. Repeat for *Paternal ethnicity*.
-9. Click *Save and view summary*.
+1.  Go to /bin/edit/PhenoTips/PatientClass?editor=class
+2.  Click *Maternal ethnicity*.
+3.  Change *Pretty name* to *Maternal race*.
+4.  Delete everything in *Custom Display*.
+5.  Change *Display Type* to *radio*.
+6.  Uncheck *Multiple Select*.
+7.  Under *Values*, enter
+    `Caucasian|Black|Asian|Pacific Islander|Native American|Other`
+8.  Repeat for *Paternal ethnicity*.
+9.  Click *Save and view summary*.
 
 ## Relatives
 
@@ -32,10 +32,10 @@ when connecting patients. This creates a gigantic mess of duplicate and
 inconsistent data. To cut down the allowed relationships to "Parent" and
 "Child":
 
-1. Go to /bin/edit/PhenoTips/RelativeClass?editor=class
-2. Click *relative_type*
-3. Change *Values* to `parent=Parent|child=Child`
-4. Click *Save and view summary*.
+1.  Go to /bin/edit/PhenoTips/RelativeClass?editor=class
+2.  Click *relative_type*
+3.  Change *Values* to `parent=Parent|child=Child`
+4.  Click *Save and view summary*.
 
 ## Work groups and study forms
 
@@ -48,16 +48,16 @@ entry form.
 
 ### Creating a study form
 
-1. Go to *Administration* > *Studies* and enter a name in CamelCase, such as
-   "NoonanSyndrome", and click *Create*. This name is permanent.
-2. On the next page, enter a more user-friendly name (which you can change
-   later), such as "Noonan syndrome study", and click *Save and view form*.
-   Note that the Patient form configuration button does not work until after you
-   have saved the form.
-3. On the next page, click *Form configuration*. From here you can check boxes
-   to specify which elements will appear on the form. Note that making an
-   element invisible on the default patient form automatically forces those
-   elements to be invisible on all other forms too.
+1.  Go to *Administration* > *Studies* and enter a name in CamelCase, such as
+    "NoonanSyndrome", and click *Create*. This name is permanent.
+2.  On the next page, enter a more user-friendly name (which you can change
+    later), such as "Noonan syndrome study", and click *Save and view form*.
+    Note that the Patient form configuration button does not work until after
+    you have saved the form.
+3.  On the next page, click *Form configuration*. From here you can check boxes
+    to specify which elements will appear on the form. Note that making an
+    element invisible on the default patient form automatically forces those
+    elements to be invisible on all other forms too.
 
 ### Creating a work group
 
@@ -80,10 +80,10 @@ upper-left corner.
 If the patient was created before there were any defined studies, there is no
 nice way to add them to a study. You must:
 
-1. Open the patient record and click Edit.
-2. Add ?editor=object to the URL.
-3. Next to *New object*, select StudyBindingClass and click Add.
-4. Select the appropriate study and click *Save and view summary*.
+1.  Open the patient record and click Edit.
+2.  Add ?editor=object to the URL.
+3.  Next to *New object*, select StudyBindingClass and click Add.
+4.  Select the appropriate study and click *Save and view summary*.
 
 ### Make the study selector appear for all new patients
 
@@ -91,9 +91,9 @@ By default, the *Study* button does not appear unless there was at least one
 custom study available to the user when the patient was initially created. To
 make the study selector appear even if there is no option to use a custom study:
 
-1. Go to /bin/edit/PhenoTips/PatientTemplate?editor=object
-2. Next to *New object*, select StudyBindingClass and click *Add*.
-3. Click *Save and view summary*.
+1.  Go to /bin/edit/PhenoTips/PatientTemplate?editor=object
+2.  Next to *New object*, select StudyBindingClass and click *Add*.
+3.  Click *Save and view summary*.
 
 From now on, all new patients will have a *Study* button.
 
@@ -196,25 +196,25 @@ fields. In this case, you extend the user interface but not the underlying data
 model. The following example adds a paragraph of text at the beginning of the
 "Patient information" section:
 
-1. Click *Administration*, then click *UIX*.
+1.  Click *Administration*, then click *UIX*.
 
-2. Under *New extension name*, enter `UIX_Field__patient_info_instructions` for
-   the new user interface element and click *Create*.
+2.  Under *New extension name*, enter `UIX_Field__patient_info_instructions` for
+    the new user interface element and click *Create*.
 
-3. Under *Extension code*, put the text that you want to display, such as
-   `Please make sure that all information in this section exactly matches the
-   patient's EHR record in EPIC.` *Extension code* accepts
-   [XWiki syntax](http://platform.xwiki.org/xwiki/bin/view/Main/XWikiSyntax)
-   for bold, italic, lists, and other formatting.
+3.  Under *Extension code*, put the text that you want to display, such as
+    `Please make sure that all information in this section exactly matches the
+    patient's EHR record in EPIC.` *Extension code* accepts
+    [XWiki syntax](http://platform.xwiki.org/xwiki/bin/view/Main/XWikiSyntax)
+    for bold, italic, lists, and other formatting.
 
-4. (Optional) Under *Extension parameters*, type
-   `title=Patient information instructions`.
+4.  (Optional) Under *Extension parameters*, type
+    `title=Patient information instructions`.
 
-5. Click *Save and view summary*.
+5.  Click *Save and view summary*.
 
-6. Go to *Administration* > *Patient form structure*, drag and drop the "Patient
-   information instructions" item to the top of the "Patient information"
-   section, and click *Save patient form configuration*.
+6.  Go to *Administration* > *Patient form structure*, drag and drop the
+    "Patient information instructions" item to the top of the "Patient
+    information" section, and click *Save patient form configuration*.
 
 ## Arrays of classed objects
 
@@ -274,13 +274,13 @@ a [script to export data from PhenoTips for ClinVar submission]
 (https://github.com/eilbecklab/phenotipsbot#export-clinvarpy). To support adding
 variants to patients for ClinVar submission:
 
-1. Download [Main.ClinVarVariant.xar](Main.ClinVarVariant.xar) and
-   [PhenoTips.UIX_Field__clinvar_variants.xar]
-   (PhenoTips.UIX_Field__clinvar_variants.xar).
-2. Go to *Administration* > *Import* and import both packages.
-3. (Optional) Go to *Administration* > *Patient form structure*, drag and drop
-   the "Variants for ClinVar" item from the "Genotype information" to wherever
-   you'd like it, and click *Save patient form configuration*.
+1.  Download [Main.ClinVarVariant.xar](Main.ClinVarVariant.xar) and
+    [PhenoTips.UIX_Field__clinvar_variants.xar]
+    (PhenoTips.UIX_Field__clinvar_variants.xar).
+2.  Go to *Administration* > *Import* and import both packages.
+3.  (Optional) Go to *Administration* > *Patient form structure*, drag and drop
+    the "Variants for ClinVar" item from the "Genotype information" to wherever
+    you'd like it, and click *Save patient form configuration*.
 
 ## Miscellaneous
 

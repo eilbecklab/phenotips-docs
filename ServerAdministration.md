@@ -1,12 +1,12 @@
 ## Setup
 
-1. Download the all-in-one package from <http://phenotips.org/Download>.
-2. (Optional) Open an independent session by running `screen`.
-3. Unzip the PhenoTips package, cd into the phenotips directory, and run
-   `./start.sh`.
-4. (Optional) After starting PhenoTips, exit `screen` by pressing Ctrl+A, then
-   Ctrl+X. PhenoTips will continue running even if you close the terminal. You
-   can return by typing `screen -r`.
+1.  Download the all-in-one package from <http://phenotips.org/Download>.
+2.  (Optional) Open an independent session by running `screen`.
+3.  Unzip the PhenoTips package, cd into the phenotips directory, and run
+    `./start.sh`.
+4.  (Optional) After starting PhenoTips, exit `screen` by pressing Ctrl+A, then
+    Ctrl+X. PhenoTips will continue running even if you close the terminal. You
+    can return by typing `screen -r`.
 
 If you have SELinux, you will have to open up a port for PhenoTips to use. For
 example, if you start PhenoTips with `JETTY_PORT=4000 ./start.sh`, you will have
@@ -32,9 +32,9 @@ local testing.
 
 ## Upgrading
 
-1. Get a new standalone version and unzip it.
-2. Delete its data directory.
-3. Copy the data directory from the old instance.
-4. Start the new instance.
-5. Log in as Admin.
-6. Follow the onscreen "distribution wizard".
+1.  Get a new standalone version and unzip it.
+2.  Delete its data directory.
+3.  Copy the data directory from the old instance.
+4.  Start the new instance.
+5.  Log in as Admin.
+6.  Follow the onscreen "distribution wizard".
