@@ -155,7 +155,7 @@ following example adds a field for eye color:
           $xwiki.ssx.use('XWiki.DateTimePicker', {'colorTheme' : "$xwiki.getSpacePreference('colorTheme')"})##
           $xwiki.jsx.use('XWiki.DateTimePicker')##
         #end
-        #__displayFormatted('2-col', 'date_of_birth' '' 'date')
+        #__displayFormatted('2-col', 'conception_date' '' 'date')
         {{/velocity}}
 
     Most of the time, you can copy and paste one of these examples changing only
