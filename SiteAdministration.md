@@ -4,8 +4,10 @@
 * [Relatives](#relatives)
 * [Work groups and study forms](#work-groups-and-study-forms)
 * [User interface components](#user-interface-components)
+  * [Typical components](#typical-components)
   * [Instructional text](#instructional-text)
   * [Arrays of classed objects](#arrays-of-classed-objects)
+  * [Files and images](#files-and-images)
   * [ClinVar](#clinvar)
 * [Miscellaneous](#miscellaneous)
 
@@ -98,6 +100,8 @@ make the study selector appear even if there is no option to use a custom study:
 From now on, all new patients will have a *Study* button.
 
 ## User interface components
+
+### Typical components
 
 Phenotips allows you to add new items to the patient entry form. For this to
 work, you must first extend the data model, then extend the user interface. The
@@ -266,6 +270,35 @@ the presence or absence of conjunctivitis:
 12. Go to *Administration* > *Patient form structure*, drag and drop the "Eye
     exams" item onto the default patient form, and click *Save patient form
     configuration*.
+
+## Files and images
+
+PhenoTips lets you create a property that holds a file or image as opposed to a
+string, number, date, etc. There are a few things that you need to do to make
+this work:
+
+1.  When you create the property, set its type to "Static List".
+
+2.  After you create the property, set its *Custom Display* to
+
+        {{include reference="PhenoTips.ImageDisplayer" /}}
+
+    The name is misleading; use the same code for both files and images.
+
+3.  (Optional) To allow the property to contain multiple files or images, check
+    *Multiple Select*.
+
+To get the exact same user interface that PhenoTips uses for attaching files,
+the property must be named "file" and be in a
+[custom class](#arrays-of-classed-objects).
+
+Note that there are actually two steps to attaching an file to a patient:
+*uploading* the file and *selecting* the file. When you upload a file for use
+in one field, it will also appear as an option for use in other fields. A file
+will remain in the patient's database of images, even if it is not used, until
+you click *Upload and manage*, hover over the file you want to delete, click the
+X in the upper-right corner, and click *Yes*. All files uploaded to a patient,
+both used and unused, are deleted when the patient is deleted.
 
 ## ClinVar
 
