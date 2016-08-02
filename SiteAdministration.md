@@ -60,8 +60,9 @@ At the end of the day, all patients in the system share the same data model.
 PhenoTips "studies" are just ways to exclude certain items from the patient
 entry form.
 
-Work groups grant permission to use study forms rather than the default patient
-entry form.
+Work groups grant users permission to use study forms rather than the default
+patient entry form. They are not to be confused with "user groups", which grant
+other permissions.
 
 ### Creating a study form
 
