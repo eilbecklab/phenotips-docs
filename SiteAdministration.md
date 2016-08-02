@@ -1,5 +1,6 @@
 ## Table of contents
 
+* [Registration](#registration)
 * [Ethnicities](#ethnicities)
 * [Relatives](#relatives)
 * [Work groups and study forms](#work-groups-and-study-forms)
@@ -10,6 +11,20 @@
   * [Files and images](#files-and-images)
   * [ClinVar](#clinvar)
 * [Miscellaneous](#miscellaneous)
+
+## Registration
+
+By default, anyone in the world can register for an account on your PhenoTips
+site, although they can only view patient data that they input themselves. To
+disallow new account creation except by site administrators:
+
+1.  Go to *Administration* > *Rights*.
+2.  In the *XWikiAllGroup* line, double-click the *Register* checkbox. After
+    that it should display a red no symbol (🚫).
+3.  Click the *Users* radio button and repeat step 2 for the
+    *Unregistered Users* line.
+
+The new setting takes effect as soon as you see the no symbol.
 
 ## Ethnicities
 
