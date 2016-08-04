@@ -4,6 +4,7 @@
 * [Ethnicities](#ethnicities)
 * [Relatives](#relatives)
 * [Work groups and study forms](#work-groups-and-study-forms)
+* [Phenotype list](#phenotype-list)
 * [User interface components](#user-interface-components)
   * [Typical components](#typical-components)
   * [Instructional text](#instructional-text)
@@ -63,6 +64,67 @@ entry form.
 Work groups grant users permission to use study forms rather than the default
 patient entry form. They are not to be confused with "user groups", which grant
 other permissions.
+
+## Phenotype list
+
+When selecting phenotypes, the user has the option of either searching or
+browsing a categorized list. It's possible to change the phenotypes in the
+categorized list. For example, to only display eye defects and make the user
+use the "Quick phenotype search" box for everything else:
+
+1.  Go to /bin/create/PhenoTips/ and under *Page name* put
+    `Eye defect phenotype configuration`. Click *Create*, then click
+    *Save and view summary*.
+
+2.  Hover over the *Edit* button and click *Objects*.
+
+3.  Next to *New object*, select PhenoTips.PhenotypeMappingClass, and click
+    *Add*.
+
+4.  Hover over the *Edit* button and click *Wiki*.
+
+5.  Copy and paste the following into *Content*:
+
+        {
+          "phenotype" : [
+            {
+              "type"       : "section",
+              "title"      : "Eye Defects",
+              "categories" : ["HP:0000478"],
+              "data"       : [
+                {"id" : "HP:0000505"},
+                {"id" : "HP:0000481"},
+                {"id" : "HP:0000589"},
+                {"id" : "HP:0000593"},
+                {"id" : "HP:0000518"},
+                {"id" : "HP:0000479"},
+                {"id" : "HP:0000587"},
+                {"id" : "HP:0000568"},
+                {"id" : "HP:0000639"},
+                {"id" : "HP:0000486"},
+                {"id" : "HP:0000601"},
+                {"id" : "HP:0000316"},
+              ]
+            },
+          ]
+        }
+
+    Then click *Save and view summary*.
+
+6.  Click the PhenoTips logo to return to the home page, click *Administration*,
+    click *Studies*, click the study form you want to modify, and click
+    *Form configuration*.
+
+7.  On the right side of the page, select *Eye defect configuration*, then click
+    *Save and view summary*.
+
+The mapping code is JSON, and this example is just
+/bin/edit/PhenoTips/Generic+phenotype+configuration with everything except the
+"Eye Defects" section removed. Each section that you define here has a
+"categories" property that controls the search box for that section. Only
+terms specified in this property and their children will appear in the search
+results for the section search box, although the "Quick phenotype search" will
+still search the entire ontology.
 
 ### Creating a study form
 
