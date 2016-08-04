@@ -149,7 +149,7 @@ following example adds a field for eye color:
     alt="" (i.e. always default to the page that contains the current date).
 
 5.  Click *Save and view summary*, click the PhenoTips logo to return to the
-    home page, click Administration, and click UIX.
+    home page, click *Administration*, and click *UIX*.
 
 6.  Under *New extension name*, enter `UIX_Field__eye_color` for
     the new user interface element and click *Create*.
