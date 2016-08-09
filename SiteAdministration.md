@@ -246,6 +246,11 @@ following example adds a field for eye color:
     functions are defined in [PatientSheetMacros.xml]
     (https://github.com/phenotips/phenotips/blob/master/components/patient-data/ui/src/main/resources/PhenoTips/PatientSheetMacros.xml).
 
+    For example, to display the field below its label instead of to the side,
+    use:
+
+        #__displayFormatted('', 'eye_color', '', '', 'section')
+
     By the way, the newline between
     `{{include reference="PhenoTips.PatientSheetMacros" /}}` and `{{velocity}}`
     matters! For whatever reason, removing this newline causes an extra
