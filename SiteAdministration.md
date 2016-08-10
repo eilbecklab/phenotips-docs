@@ -190,10 +190,12 @@ following example adds a field for eye color:
 2.  Next to *Add new property*, put `eye_color`, select an appropriate data type
     (for simplicity, you can use String), and click *Add*.
 
+    If creating a Yes/No/NA property, the correct data type is Boolean.
+
 3.  Click the + sign next to the newly-created eye_color property and change
     *Pretty name* to `Eye color`.
 
-4.  If creating a property to record a date, under *Date Format* change
+4.  **If creating a property to record a date**, under *Date Format* change
     `dd/MM/yyyy HH:mm:ss` to `yyyy-MM-dd`. Then, under *Custom Display*, put:
 
         {{velocity}}{{html wiki=false clean=false}}
@@ -210,6 +212,10 @@ following example adds a field for eye color:
     attribute (which controls the page that the calendar shows first) changed to
     alt="" (i.e. always default to the page that contains the current date).
 
+    **If creating a property to record Yes/No/NA**, under *Custom Display*, put:
+
+        {{include reference="PhenoTips.YesNoNAPicker" /}}
+
 5.  Click *Save and view summary*, click the PhenoTips logo to return to the
     home page, click *Administration*, and click *UIX*.
 
@@ -219,16 +225,7 @@ following example adds a field for eye color:
 7.  Start by filling in *Extension code*. You will need to call a Velocity
     function to display the property from the data model.
 
-    For a **Number**, **String**, **Static List**, **TextArea**, **Email**, or
-    **Boolean**:
-
-        {{include reference="PhenoTips.PatientSheetMacros" /}}
-
-        {{velocity}}
-        #__displayFormatted('2-col', 'eye_color')
-        {{/velocity}}
-
-    For a **Date**:
+    For a **date**:
 
         {{include reference="PhenoTips.PatientSheetMacros" /}}
 
@@ -238,6 +235,26 @@ following example adds a field for eye color:
           $xwiki.jsx.use('XWiki.DateTimePicker')##
         #end
         #__displayFormatted('2-col', 'conception_date' '' 'date')
+        {{/velocity}}
+
+    For a **Yes/No/NA**:
+
+        {{include reference="PhenoTips.PatientSheetMacros" /}}
+
+        {{velocity}}
+        #if ($xcontext.action == 'edit')
+          $xwiki.ssx.use('PhenoTips.YesNoNAPicker', {'colorTheme' : "$!{themeDocFullName}"})##
+          $xwiki.jsx.use('PhenoTips.YesNoNAPicker')##
+        #end
+        #__display('eye_transplant')
+        {{/velocity}}
+
+    For **everything else**:
+
+        {{include reference="PhenoTips.PatientSheetMacros" /}}
+
+        {{velocity}}
+        #__displayFormatted('2-col', 'eye_color')
         {{/velocity}}
 
     Most of the time, you can copy and paste one of these examples changing only
