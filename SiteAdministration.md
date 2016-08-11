@@ -7,6 +7,7 @@
 * [Phenotype list](#phenotype-list)
 * [User interface components](#user-interface-components)
   * [Typical components](#typical-components)
+  * [Lists of options](#lists-of-options)
   * [Instructional text](#instructional-text)
   * [Arrays of classed objects](#arrays-of-classed-objects)
   * [Files and images](#files-and-images)
@@ -292,6 +293,45 @@ following example adds a field for eye color:
 12. (Optional) Go to *Administration* > *Studies* > *[study name]* >
     *Form configuration* to remove *Eye color* from a particular form or move it
     to a different position on the form.
+
+## Lists of options
+
+It's also possible to create a property that is a question with an arbitrary but
+finite number of possible answers. The following example is for a property to
+record relevant eye surgeries that the patient has had:
+
+1.  When creating the property, set its type to *Static List*.
+
+2.  After creating the property, fill in the *Values* field with the list of
+    possible surgeries.
+
+    To make the values recorded the same as the text displayed, simply separate
+    them with pipe symbols:
+
+        Cataract surgery|Glaucoma surgery|Refractive surgery
+
+    To record values that are different from the text displayed, combine the
+    value and the text with an equals sign. This is particularly useful for
+    recording coded data:
+
+        CPT 66982=Cataract surgery|CPT 66150=Glaucoma surgery|CPT 66840=Refractive surgery
+
+    Do not insert spaces around the pipe symbols or equals signs; if you do,
+    spaces will be inserted into the recorded values too.
+
+3.  **If the possible values are mutually exclusive**, under *Display Type*,
+    choose *select* if you want a drop-down or *radio* if you want radio
+    buttons. **If the possible values are not mutually exclusive**, check
+    *Multiple Select* and under *Display Form* choose *checkbox*.
+
+4.  (Optional) By default, all of the checkboxes or radio buttons are displayed
+    together on one line. To get a line break after each one, when creating the
+    user interface extension, click the + sign next to *StyleSheetExtension 0*
+    and put the following under *Code*:
+
+        .eye_surgeries > .displayed-value > label {
+          display: block;
+        }
 
 ## Instructional text
 
