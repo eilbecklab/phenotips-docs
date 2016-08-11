@@ -65,6 +65,57 @@ Work groups grant users permission to use study forms rather than the default
 patient entry form. They are not to be confused with "user groups", which grant
 other permissions.
 
+### Creating a study form
+
+1.  Go to *Administration* > *Studies* and enter a name in CamelCase, such as
+    "NoonanSyndrome", and click *Create*. This name is permanent.
+2.  On the next page, enter a more user-friendly name (which you can change
+    later), such as "Noonan syndrome study", and click *Save and view form*.
+    Note that the Patient form configuration button does not work until after
+    you have saved the form.
+3.  On the next page, click *Form configuration*. From here you can check boxes
+    to specify which elements will appear on the form. Note that making an
+    element invisible on the default patient form automatically forces those
+    elements to be invisible on all other forms too.
+
+### Creating a work group
+
+Go to Administration > Work groups and enter a name in CamelCase, such as
+EilbeckLab. Add people to the group and check the boxes next to the study forms
+that they should have access to.
+
+### Set which study form to use for a new patient
+
+If you are in a workgroup with available studies, you will be asked every time
+you create a patient record which study it belongs to. You will then be
+presented with the corresponding study form instead of the default form.
+
+### Set which study form to use for an existing patient
+
+If you are simply moving the patient from one study to another, click on the
+patient and click the edit button next to the study information in the
+upper-left corner.
+
+If the patient was created before there were any defined studies, there is no
+nice way to add them to a study. You must:
+
+1.  Open the patient record and click Edit.
+2.  Add ?editor=object to the URL.
+3.  Next to *New object*, select StudyBindingClass and click Add.
+4.  Select the appropriate study and click *Save and view summary*.
+
+### Make the study selector appear for all new patients
+
+By default, the *Study* button does not appear unless there was at least one
+custom study available to the user when the patient was initially created. To
+make the study selector appear even if there is no option to use a custom study:
+
+1.  Go to /bin/edit/PhenoTips/PatientTemplate?editor=object
+2.  Next to *New object*, select StudyBindingClass and click *Add*.
+3.  Click *Save and view summary*.
+
+From now on, all new patients will have a *Study* button.
+
 ## Phenotype list
 
 When selecting phenotypes, the user has the option of either searching or
@@ -125,57 +176,6 @@ The mapping code is JSON, and this example is just
 terms specified in this property and their children will appear in the search
 results for the section search box, although the "Quick phenotype search" will
 still search the entire ontology.
-
-### Creating a study form
-
-1.  Go to *Administration* > *Studies* and enter a name in CamelCase, such as
-    "NoonanSyndrome", and click *Create*. This name is permanent.
-2.  On the next page, enter a more user-friendly name (which you can change
-    later), such as "Noonan syndrome study", and click *Save and view form*.
-    Note that the Patient form configuration button does not work until after
-    you have saved the form.
-3.  On the next page, click *Form configuration*. From here you can check boxes
-    to specify which elements will appear on the form. Note that making an
-    element invisible on the default patient form automatically forces those
-    elements to be invisible on all other forms too.
-
-### Creating a work group
-
-Go to Administration > Work groups and enter a name in CamelCase, such as
-EilbeckLab. Add people to the group and check the boxes next to the study forms
-that they should have access to.
-
-### Set which study form to use for a new patient
-
-If you are in a workgroup with available studies, you will be asked every time
-you create a patient record which study it belongs to. You will then be
-presented with the corresponding study form instead of the default form.
-
-### Set which study form to use for an existing patient
-
-If you are simply moving the patient from one study to another, click on the
-patient and click the edit button next to the study information in the
-upper-left corner.
-
-If the patient was created before there were any defined studies, there is no
-nice way to add them to a study. You must:
-
-1.  Open the patient record and click Edit.
-2.  Add ?editor=object to the URL.
-3.  Next to *New object*, select StudyBindingClass and click Add.
-4.  Select the appropriate study and click *Save and view summary*.
-
-### Make the study selector appear for all new patients
-
-By default, the *Study* button does not appear unless there was at least one
-custom study available to the user when the patient was initially created. To
-make the study selector appear even if there is no option to use a custom study:
-
-1.  Go to /bin/edit/PhenoTips/PatientTemplate?editor=object
-2.  Next to *New object*, select StudyBindingClass and click *Add*.
-3.  Click *Save and view summary*.
-
-From now on, all new patients will have a *Study* button.
 
 ## User interface components
 
