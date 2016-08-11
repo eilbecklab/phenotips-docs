@@ -7,6 +7,7 @@
 * [Phenotype list](#phenotype-list)
 * [User interface components](#user-interface-components)
   * [Typical components](#typical-components)
+  * [Dates](#dates)
   * [Ternaries](#ternaries)
   * [Lists of options](#lists-of-options)
   * [Instructional text](#instructional-text)
@@ -195,8 +196,66 @@ following example adds a field for eye color:
 3.  Click the + sign next to the newly-created eye_color property and change
     *Pretty name* to `Eye color`.
 
-4.  **If creating a property to record a date**, under *Date Format* change
-    `dd/MM/yyyy HH:mm:ss` to `yyyy-MM-dd`. Then, under *Custom Display*, put:
+4.  Click *Save and view summary*, click the PhenoTips logo to return to the
+    home page, click *Administration*, and click *UIX*.
+
+5.  Under *New extension name*, enter `UIX_Field__eye_color` for
+    the new user interface element and click *Create*.
+
+6.  Start by filling in *Extension code*. You will need to call a Velocity
+    function to display the property from the data model. This is the code that
+    you would typically use:
+
+        {{include reference="PhenoTips.PatientSheetMacros" /}}
+
+        {{velocity}}
+        #__displayFormatted('2-col', 'eye_color')
+        {{/velocity}}
+
+    Most of the time, you can copy and paste this examples changing only the
+    name of the data model property. However, you can insert arbitrary content
+    or call a different display function if you want. The display functions are
+    defined in [PatientSheetMacros.xml]
+    (https://github.com/phenotips/phenotips/blob/master/components/patient-data/ui/src/main/resources/PhenoTips/PatientSheetMacros.xml).
+
+    For example, to display the field below its label instead of to the side,
+    use:
+
+        #__displayFormatted('', 'eye_color', '', '', 'section')
+
+    By the way, the newline between
+    `{{include reference="PhenoTips.PatientSheetMacros" /}}` and `{{velocity}}`
+    matters! For whatever reason, removing this newline causes an extra
+    `<p><br/></p>` to be inserted before the field, or (if the field is blank)
+    to be inserted before where the field would be if it were displayed.
+
+7.  (Optional) Under *Extension parameters*, type `title=Eye color`. This title
+    (more of a label, really) will not be displayed to the user, but it will be
+    displayed when you modify the patient form. It is sort of documented at
+    https://phenotips.org/DevGuide/UIX#HInthepatientform
+
+8.  Click *Save and view summary*.
+
+9.  Return to the home page and click *Administration*, then *Patient form
+    structure* to modify the default form.
+
+10. Next to *Eye color*, hold the mouse down on the cross icon to drag the user
+    interface element onto the patient form, then click *Save patient form
+    configuration*. Again, elements must be enabled on the default patient form
+    to be able to appear on any other form.
+
+11. (Optional) Go to *Administration* > *Studies* > *[study name]* >
+    *Form configuration* to remove *Eye color* from a particular form or move it
+    to a different position on the form.
+
+## Dates
+
+If creating a property to record a date, there are a couple of differences. For
+example, to create a property to record the patient's conception date:
+
+1.  When creating the property, set its type to *Date*.
+
+2.  After creating the property, under *Custom Display*, put:
 
         {{velocity}}{{html wiki=false clean=false}}
         #set ($definedFormat = "$!object.xWikiClass.get($name).getProperty('dateFormat').value")
@@ -212,16 +271,7 @@ following example adds a field for eye color:
     attribute (which controls the page that the calendar shows first) changed to
     alt="" (i.e. always default to the page that contains the current date).
 
-5.  Click *Save and view summary*, click the PhenoTips logo to return to the
-    home page, click *Administration*, and click *UIX*.
-
-6.  Under *New extension name*, enter `UIX_Field__eye_color` for
-    the new user interface element and click *Create*.
-
-7.  Start by filling in *Extension code*. You will need to call a Velocity
-    function to display the property from the data model.
-
-    For a **date**:
+3.  When creating the user interface extension, under *Extension code*, put:
 
         {{include reference="PhenoTips.PatientSheetMacros" /}}
 
@@ -232,50 +282,6 @@ following example adds a field for eye color:
         #end
         #__displayFormatted('2-col', 'conception_date' '' 'date')
         {{/velocity}}
-
-    For **everything else**:
-
-        {{include reference="PhenoTips.PatientSheetMacros" /}}
-
-        {{velocity}}
-        #__displayFormatted('2-col', 'eye_color')
-        {{/velocity}}
-
-    Most of the time, you can copy and paste one of these examples changing only
-    the name of the data model property. However, you can insert arbitrary
-    content or call a different display function if you want. The display
-    functions are defined in [PatientSheetMacros.xml]
-    (https://github.com/phenotips/phenotips/blob/master/components/patient-data/ui/src/main/resources/PhenoTips/PatientSheetMacros.xml).
-
-    For example, to display the field below its label instead of to the side,
-    use:
-
-        #__displayFormatted('', 'eye_color', '', '', 'section')
-
-    By the way, the newline between
-    `{{include reference="PhenoTips.PatientSheetMacros" /}}` and `{{velocity}}`
-    matters! For whatever reason, removing this newline causes an extra
-    `<p><br/></p>` to be inserted before the field, or (if the field is blank)
-    to be inserted before where the field would be if it were displayed.
-
-8.  (Optional) Under *Extension parameters*, type `title=Eye color`. This title
-    (more of a label, really) will not be displayed to the user, but it will be
-    displayed when you modify the patient form. It is sort of documented at
-    https://phenotips.org/DevGuide/UIX#HInthepatientform
-
-9.  Click *Save and view summary*.
-
-10. Return to the home page and click *Administration*, then *Patient form
-    structure* to modify the default form.
-
-11. Next to *Eye color*, hold the mouse down on the cross icon to drag the user
-    interface element onto the patient form, then click *Save patient form
-    configuration*. Again, elements must be enabled on the default patient form
-    to be able to appear on any other form.
-
-12. (Optional) Go to *Administration* > *Studies* > *[study name]* >
-    *Form configuration* to remove *Eye color* from a particular form or move it
-    to a different position on the form.
 
 ## Ternaries
 
