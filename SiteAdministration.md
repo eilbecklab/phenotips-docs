@@ -191,7 +191,7 @@ following example adds a field for eye color:
 1.  Go to /bin/edit/PhenoTips/PatientClass?editor=class
 
 2.  Next to *Add new property*, put `eye_color`, select an appropriate data type
-    (for simplicity, you can use String), and click *Add*.
+    (for simplicity, you can use *String*), and click *Add*.
 
 3.  Click the + sign next to the newly-created eye_color property and change
     *Pretty name* to `Eye color`.
