@@ -7,6 +7,7 @@
 * [Phenotype list](#phenotype-list)
 * [User interface components](#user-interface-components)
   * [Typical components](#typical-components)
+  * [Ternaries](#ternaries)
   * [Lists of options](#lists-of-options)
   * [Instructional text](#instructional-text)
   * [Arrays of classed objects](#arrays-of-classed-objects)
@@ -191,8 +192,6 @@ following example adds a field for eye color:
 2.  Next to *Add new property*, put `eye_color`, select an appropriate data type
     (for simplicity, you can use String), and click *Add*.
 
-    If creating a Yes/No/NA property, the correct data type is Boolean.
-
 3.  Click the + sign next to the newly-created eye_color property and change
     *Pretty name* to `Eye color`.
 
@@ -213,10 +212,6 @@ following example adds a field for eye color:
     attribute (which controls the page that the calendar shows first) changed to
     alt="" (i.e. always default to the page that contains the current date).
 
-    **If creating a property to record Yes/No/NA**, under *Custom Display*, put:
-
-        {{include reference="PhenoTips.YesNoNAPicker" /}}
-
 5.  Click *Save and view summary*, click the PhenoTips logo to return to the
     home page, click *Administration*, and click *UIX*.
 
@@ -236,18 +231,6 @@ following example adds a field for eye color:
           $xwiki.jsx.use('XWiki.DateTimePicker')##
         #end
         #__displayFormatted('2-col', 'conception_date' '' 'date')
-        {{/velocity}}
-
-    For a **Yes/No/NA**:
-
-        {{include reference="PhenoTips.PatientSheetMacros" /}}
-
-        {{velocity}}
-        #if ($xcontext.action == 'edit')
-          $xwiki.ssx.use('PhenoTips.YesNoNAPicker', {'colorTheme' : "$!{themeDocFullName}"})##
-          $xwiki.jsx.use('PhenoTips.YesNoNAPicker')##
-        #end
-        #__display('eye_transplant')
         {{/velocity}}
 
     For **everything else**:
@@ -293,6 +276,31 @@ following example adds a field for eye color:
 12. (Optional) Go to *Administration* > *Studies* > *[study name]* >
     *Form configuration* to remove *Eye color* from a particular form or move it
     to a different position on the form.
+
+## Ternaries
+
+A ternary is a question with one of three answers: *Yes*, *No*, and
+*Not Applicable*. For example, you could create an "Organ donor" field that
+should be *Yes* if the patient is an organ donor, *No* if the patient is not,
+and *NA* if unknown:
+
+1.  When creating the property, set its type to *Boolean*.
+
+2.  After creating the property, under *Custom Display*, put:
+
+        {{include reference="PhenoTips.YesNoNAPicker" /}}
+
+3.  When creating the user interface extension, under *Extension code*, put:
+
+        {{include reference="PhenoTips.PatientSheetMacros" /}}
+
+        {{velocity}}
+        #if ($xcontext.action == 'edit')
+          $xwiki.ssx.use('PhenoTips.YesNoNAPicker', {'colorTheme' : "$!{themeDocFullName}"})##
+          $xwiki.jsx.use('PhenoTips.YesNoNAPicker')##
+        #end
+        #__display('organ_donor')
+        {{/velocity}}
 
 ## Lists of options
 
