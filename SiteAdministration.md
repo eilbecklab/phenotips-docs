@@ -340,8 +340,7 @@ record relevant eye surgeries that the patient has had:
 
 4.  (Optional) By default, all of the checkboxes or radio buttons are displayed
     together on one line. To get a line break after each one, when creating the
-    user interface extension, click the + sign next to *StyleSheetExtension 0*
-    and put the following under *Code*:
+    user interface extension, put the following under *CSS code*:
 
         .eye_surgeries > .displayed-value > label {
           display: block;
