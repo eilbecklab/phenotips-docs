@@ -102,9 +102,9 @@ upper-left corner.
 If the patient was created before there were any defined studies, there is no
 nice way to add them to a study. You must:
 
-1.  Open the patient record and click Edit.
+1.  Open the patient record and click *Edit*.
 2.  Add ?editor=object to the URL.
-3.  Next to *New object*, select StudyBindingClass and click Add.
+3.  Next to *New object*, select StudyBindingClass and click *Add*.
 4.  Select the appropriate study and click *Save and view summary*.
 
 ### Make the study selector appear for all new patients
@@ -435,7 +435,7 @@ PhenoTips lets you create a property that holds a file or image as opposed to a
 string, number, date, etc. There are a few things that you need to do to make
 this work:
 
-1.  When you create the property, set its type to "Static List".
+1.  When you create the property, set its type to *Static List*.
 
 2.  After you create the property, set its *Custom Display* to
 
