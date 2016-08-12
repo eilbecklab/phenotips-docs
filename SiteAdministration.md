@@ -248,7 +248,7 @@ following example adds a field for eye color:
     *Form configuration* to remove *Eye color* from a particular form or move it
     to a different position on the form.
 
-## Dates
+### Dates
 
 If creating a property to record a date, there are a couple of differences. For
 example, to create a property to record the patient's conception date:
@@ -283,7 +283,7 @@ example, to create a property to record the patient's conception date:
         #__displayFormatted('2-col', 'conception_date' '' 'date')
         {{/velocity}}
 
-## Ternaries
+### Ternaries
 
 A ternary is a question with one of three answers: *Yes*, *No*, and
 *Not Applicable*. For example, you could create an "Organ donor" field that
@@ -308,7 +308,7 @@ and *NA* if unknown:
         #__display('organ_donor')
         {{/velocity}}
 
-## Lists of options
+### Lists of options
 
 It's also possible to create a property that is a question with an arbitrary but
 finite number of possible answers. The following example is for a property to
@@ -347,7 +347,7 @@ record relevant eye surgeries that the patient has had:
           display: block;
         }
 
-## Instructional text
+### Instructional text
 
 Sometimes you need to add a paragraph of instructions that apply to a set of
 fields. In this case, you extend the user interface but not the underlying data
@@ -374,7 +374,7 @@ model. The following example adds a paragraph of text at the beginning of the
     "Patient information instructions" item to the top of the "Patient
     information" section, and click *Save patient form configuration*.
 
-## Arrays of classed objects
+### Arrays of classed objects
 
 Some PhenoTips fields, such as "Measurements" and "List of candidate genes", are
 actually arrays of objects attached to the patient. You can attach custom
@@ -425,7 +425,7 @@ the presence or absence of conjunctivitis:
     exams" item onto the default patient form, and click *Save patient form
     configuration*.
 
-## Files and images
+### Files and images
 
 PhenoTips lets you create a property that holds a file or image as opposed to a
 string, number, date, etc. There are a few things that you need to do to make
@@ -454,7 +454,7 @@ you click *Upload and manage*, hover over the file you want to delete, click the
 X in the upper-right corner, and click *Yes*. All files uploaded to a patient,
 both used and unused, are deleted when the patient is deleted.
 
-## ClinVar
+### ClinVar
 
 The [PhenoTipsBot](https://github.com/eilbecklab/phenotipsbot) project includes
 a [script to export data from PhenoTips for ClinVar submission]
