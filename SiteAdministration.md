@@ -32,19 +32,63 @@ The new setting takes effect as soon as you see the no symbol.
 
 ## Ethnicities
 
-The default ethnicity selector is not well adapted to US conventions. To replace
-it with a simple set of radio buttons:
+The default ethnicity selector is not well adapted to US conventions. It has too
+many options, and in the USA the term *ethnicity* is usually reserved for
+describing whether a person is Hispanic or non-Hispanic.
+
+To replace the ethnicity selector with a simple
+[set of checkboxes](#lists-of-options):
 
 1.  Go to /bin/edit/PhenoTips/PatientClass?editor=class
+
 2.  Click *Maternal ethnicity*.
-3.  Change *Pretty name* to *Maternal race*.
+
+3.  (Optional) Change *Pretty name* to `Maternal race`. Because this is a
+    builtin PhenoTips field, changing the pretty name does not actually change
+    the user interface (see the instructions below).
+
 4.  Delete everything in *Custom Display*.
-5.  Change *Display Type* to *radio*.
-6.  Uncheck *Multiple Select*.
-7.  Under *Values*, enter
+
+5.  Change *Display Type* to *checkbox*.
+
+6.  Under *Values*, enter
     `Caucasian|Black|Asian|Pacific Islander|Native American|Other`
-8.  Repeat for *Paternal ethnicity*.
-9.  Click *Save and view summary*.
+
+7.  Repeat for *Paternal ethnicity*.
+
+8.  Click *Save and view summary*.
+
+To change the word *ethnicity* to *race* on the user interface:
+
+1.  Go to /bin/edit/PhenoTips/TranslationOverrides?editor=object
+
+2.  Next to *New object*, select TranslationDocumentClass and click *Add*.
+
+3.  Under *Scope*, select WIKI.
+
+4.  Click *Save and view summary*.
+
+5.  Click *Edit* (to get the wiki text editor).
+
+6.  Copy and paste the following into *Content*:
+
+        PhenoTips.PatientClass_maternal_ethnicity=Maternal race
+        PhenoTips.PatientClass_paternal_ethnicity=Paternal race
+
+7. Click *Save and view summary*.
+
+For more information, read
+[Overriding translations](https://phenotips.org/FAQ/Overriding+translations) in
+the [PhenoTips FAQ](https://phenotips.org/FAQ/).
+
+Because these instructions do not change the `maternal_ethnicity` and
+`paternal_ethnicity` property names, they preserve compatibility with the
+standard PhenoTips data model.
+
+If you also need to capture whether the patient is Hispanic or non-Hispanic, see
+the instructions for [adding a new checkbox](#typical-components) or
+[adding a new ternary](#ternaries). To avoid confusion, I recommend naming such
+a property `hispanicity`.
 
 ## Relatives
 
