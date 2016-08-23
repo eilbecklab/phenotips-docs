@@ -315,7 +315,10 @@ example, to create a property to record the patient's conception date:
     attribute (which controls the page that the calendar shows first) changed to
     alt="" (i.e. always default to the page that contains the current date).
 
-3.  When creating the user interface extension, under *Extension code*, put:
+3.  (Optional) If you don't want the date to be filled in automatically, uncheck
+    *Empty is today*.
+
+4.  When creating the user interface extension, under *Extension code*, put:
 
         {{include reference="PhenoTips.PatientSheetMacros" /}}
 
