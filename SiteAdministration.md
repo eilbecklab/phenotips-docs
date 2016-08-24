@@ -333,9 +333,11 @@ example, to create a property to record the patient's conception date:
 ### Ternaries
 
 A ternary is a question with one of three answers: *Yes*, *No*, and
-*Not Applicable*. For example, you could create an "Organ donor" field that
-should be *Yes* if the patient is an organ donor, *No* if the patient is not,
-and *NA* if unknown:
+*Not Applicable*. The third option makes ternaries more flexible than checkboxes
+and they integrate better with PhenoTips's look and feel, so if you are thinking
+of using a checkbox, you almost certainly want to use a ternary instead. For
+example, you could create an "Organ donor" field that should be *Yes* if the
+patient is an organ donor, *No* if the patient is not, and *NA* if unknown:
 
 1.  When creating the property, set its type to *Boolean*.
 
@@ -352,7 +354,7 @@ and *NA* if unknown:
           $xwiki.ssx.use('PhenoTips.YesNoNAPicker', {'colorTheme' : "$!{themeDocFullName}"})##
           $xwiki.jsx.use('PhenoTips.YesNoNAPicker')##
         #end
-        #__display('organ_donor')
+        #__displayIfSet('organ_donor')
         {{/velocity}}
 
 ### Lists of options
