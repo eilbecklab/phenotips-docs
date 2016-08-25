@@ -85,10 +85,8 @@ Because these instructions do not change the `maternal_ethnicity` and
 `paternal_ethnicity` property names, they preserve compatibility with the
 standard PhenoTips data model.
 
-If you also need to capture whether the patient is Hispanic or non-Hispanic, see
-the instructions for [adding a new checkbox](#typical-components) or
-[adding a new ternary](#ternaries). To avoid confusion, I recommend naming such
-a property `hispanicity`.
+If you also want to capture whether the patient is Hispanic or Latino,
+add a new [ternary](#ternaries) named `hispanic_or_latino`.
 
 ## Relatives
 
