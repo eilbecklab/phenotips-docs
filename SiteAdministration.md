@@ -434,8 +434,8 @@ that displays an array of objects of that class. The following example creates a
 class for eye examinations, where we are interested in the date of the exam and
 the presence or absence of conjunctivitis:
 
-1.  Go to /bin/create/Main/AllDocs and under *Page name* put `EyeExam`. Click
-    *Create*, then click *Save and view summary*.
+1.  Go to /bin/create/PhenoTips/AllDocs and under *Page name* put
+    `EyeExamClass`. Click *Create*, then click *Save and view summary*.
 
 2.  Hover over the *Edit* button and click *Class*.
 
@@ -465,7 +465,7 @@ the presence or absence of conjunctivitis:
 
         ===Eye exams===
         {{velocity}}
-        #__extradata_displayTable('Main.EyeExam', {'counter' : false, 'labels' : true, 'mode' : $xcontext.action})
+        #__extradata_displayTable('PhenoTips.EyeExamClass', {'counter' : false, 'labels' : true, 'mode' : $xcontext.action})
         {{/velocity}}
 
 10. (Optional) Under *Extension parameters*, type `title=Eye exams`.
@@ -512,9 +512,9 @@ a [script to export data from PhenoTips for ClinVar submission]
 (https://github.com/eilbecklab/phenotipsbot#export-clinvarpy). To support adding
 variants to patients for ClinVar submission:
 
-1.  Download [Main.ClinVarVariant.xar](Main.ClinVarVariant.xar) and
-    [PhenoTips.UIX_Field__clinvar_variants.xar]
-    (PhenoTips.UIX_Field__clinvar_variants.xar).
+1.  Download
+    [PhenoTips.ClinVarVariantClass.xar](Phenotips.ClinVarVariantClass.xar) and
+    [PhenoTips.UIX_Field__clinvar_variants.xar](PhenoTips.UIX_Field__clinvar_variants.xar).
 2.  Go to *Administration* > *Import* and import both packages.
 3.  (Optional) Go to *Administration* > *Patient form structure*, drag and drop
     the "Variants for ClinVar" item from the "Genotype information" to wherever
