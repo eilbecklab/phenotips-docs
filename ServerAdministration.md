@@ -32,7 +32,7 @@ local testing.
 
 If you want to copy just your data model and UI customizations (no patient
 data) to another PhenoTips site, go to
-/bin/export/PhenoTips/WebHome?format=xar&name=PhenoTips-namespace&pages=xwiki%3APhenoTips.%25
+/bin/export/PhenoTips/WebHome?format=xar&name=data-model-and-ui-customizations&pages=xwiki%3APhenoTips.%25&pages=xwiki%3AStudies.%25
 and import the file on the other site through *Administration* > *Import*. This
 will overwrite the data model and any conflicting UI customizations on the
 target site.
