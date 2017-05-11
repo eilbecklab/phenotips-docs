@@ -125,7 +125,7 @@ other permissions.
 
 ### Creating a work group
 
-Go to Administration > Work groups and enter a name in CamelCase, such as
+Go to *Administration* > *Work groups* and enter a name in CamelCase, such as
 EilbeckLab. Add people to the group and check the boxes next to the study forms
 that they should have access to.
 
