@@ -20,7 +20,7 @@ includes SecRuleEngine Off.
 
 ## Backup
 
-PhenoTips's builtin backup function (*Administration* > *Backup*) stops working
+PhenoTips's builtin backup function (*Administration* > *Export*) stops working
 once the database contains about 10,000 patients (see
 [PhenoTips bug 2369](https://phenotips.atlassian.net/browse/PT-2369)). However,
 you can back up a PhenoTips site of any size just fine by making a copy of its
